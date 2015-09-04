@@ -1,0 +1,24 @@
+#!/usr/bin/python2.7
+# vim: set syntax=python:
+
+from bottle import run
+from gnucash import Session
+from controller import AccountController
+
+import json
+import sys
+
+def main():
+    if len(sys.argv) < 2:
+        sys.stderr.write("usage: " + sys.argv[0] + " gnucash_uri\n")
+        exit(1)
+
+    s = Session(sys.argv[1])
+    AccountController.session = s
+    try:
+        run(host='localhost', port=8080, debug=True)
+    finally:
+        s.end()
+
+if __name__ == "__main__":
+    main()
