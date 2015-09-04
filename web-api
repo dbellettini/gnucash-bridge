@@ -10,13 +10,18 @@ import sys
 
 def main():
     if len(sys.argv) < 2:
-        sys.stderr.write("usage: " + sys.argv[0] + " gnucash_uri\n")
+        sys.stderr.write("usage: " + sys.argv[0] + " gnucash_uri [port]\n")
         exit(1)
+
+    if len(sys.argv) > 2:
+        port = int(sys.argv[2])
+    else:
+        port = 8080
 
     s = Session(sys.argv[1])
     AccountController.session = s
     try:
-        run(host='localhost', port=8080, debug=True)
+        run(host='localhost', port=port, debug=True)
     finally:
         s.end()
 
