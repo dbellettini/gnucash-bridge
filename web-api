@@ -3,7 +3,7 @@
 
 from bottle import run
 from gnucash import Session
-from controller import AccountController
+from controller.main import AccountController
 
 import sys
 
