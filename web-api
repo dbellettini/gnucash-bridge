@@ -5,7 +5,6 @@ from bottle import run
 from gnucash import Session
 from controller import AccountController
 
-import json
 import sys
 
 def main():
