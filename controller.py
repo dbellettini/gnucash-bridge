@@ -1,4 +1,4 @@
-from bottle import route
+from bottle import route, static_file
 from collections import OrderedDict
 from uuid import UUID
 
@@ -30,6 +30,10 @@ def map_root_account(root_account):
     return mapped
 
 class AccountController:
+    @route('/' , 'GET')
+    def root():
+        return static_file('index.html', root='web')
+
     @route('/accounts', 'GET')
     def list():
         root_account = AccountController.session.book.get_root_account()
