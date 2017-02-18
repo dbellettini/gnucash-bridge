@@ -11,9 +11,9 @@ class StaticController:
 
 
 class AccountController:
-    @classmethod
+    @staticmethod
     @route('/accounts', 'GET')
-    def list(cls):
-        repo = AccountRepository(cls.session)
+    def list():
+        repo = AccountRepository(AccountController.session)
 
         return repo.all()
