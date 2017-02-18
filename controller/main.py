@@ -4,9 +4,10 @@ from data.account import AccountRepository
 
 class StaticController:
     @staticmethod
+    @route('/<filepath:path>')
     @route('/' , 'GET')
-    def root():
-        return static_file('index.html', root='web')
+    def root(filepath = 'index.html'):
+        return static_file(filepath, root='web')
 
 
 class AccountController:
