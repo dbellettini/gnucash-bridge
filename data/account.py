@@ -1,6 +1,7 @@
 from collections import OrderedDict
 from uuid import UUID
 
+
 class AccountRepository:
     def __init__(self, session):
         self.session = session
@@ -25,9 +26,10 @@ class AccountRepository:
             children.append(self.map_account(child))
 
         if len(children) > 0:
-            dict['children'] = children;
+            dict['children'] = children
 
         return dict
+
 
 def account_uuid(account):
     return str(UUID(account.GetGUID().to_string()))

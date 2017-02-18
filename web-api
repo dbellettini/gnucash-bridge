@@ -7,6 +7,7 @@ from controller.main import AccountController
 
 import sys
 
+
 def main():
     if len(sys.argv) < 2:
         sys.stderr.write("usage: " + sys.argv[0] + " gnucash_uri [port]\n")
